@@ -1,11 +1,26 @@
-const input_text = document.querySelector('input')
-const input_btn = document.querySelector('button')
-let task_list = document.getElementsByClassName('task__list')
-console.log(input_text)
-let task_element = null
-input_btn.addEventListener('click', (event)=> {
+const inputText = document.querySelector('input')
+const inputBtn = document.querySelector('button')
+const taskList = document.getElementsByClassName('task__list')
+let taskElement = null
+inputBtn.addEventListener('click', (event)=> {
     event.preventDefault()
-    if(input_text.textContent != null) {
-        
+    if(inputText.value != null) {
+        const taskDiv = document.createElement('div')
+        taskDiv.classList.add('task')
+        taskDiv.outerText = inputText.valueAsDate
+        console.log(taskDiv.outerText)        
+        const removeLink = document.createElement('a')
+        removeLink.classList.add('task__remove')
+        removeLink.href = '#'
+        removeLink.textContent = '×'
+        taskDiv.appendChild(titleDiv)
+        taskDiv.appendChild(removeLink)
+        taskList.appendChild(taskDiv)
     }
+})
+const removeLinks = document.querySelectorAll('task__remove')
+removeLinks.forEach(removeLink, () => {
+    removeLink.addEventListener('click', () => {
+
+    })
 })
